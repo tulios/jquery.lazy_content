@@ -1,0 +1,160 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Loading images demo - jQuery.lazy_content by tulios</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <link rel="stylesheet" href="stylesheets/example.css">
+    <style media="screen">
+      .block .content { display: block; }
+    </style>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="javascripts/respond.js"></script>
+    <script src="javascripts/jquery.lazy_content.js"></script>
+    <script src="javascripts/jquery.lazy_content_img.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!--[if lt IE 8]>
+    <link rel="stylesheet" href="stylesheets/ie.css">
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  </head>
+  <body>
+      <div id="header">
+        <nav>
+          <li class="fork"><a href="https://github.com/tulios/jquery.lazy_content">View On GitHub</a></li>
+          <li class="downloads"><a href="https://github.com/tulios/jquery.lazy_content/zipball/master">ZIP</a></li>
+          <li class="downloads"><a href="https://github.com/tulios/jquery.lazy_content/tarball/master">TAR</a></li>
+          <li class="title">DOWNLOADS</li>
+        </nav>
+      </div>
+
+    <div class="wrapper">
+      <section>
+        <div id="title">
+          <h1><a href="index.html">jQuery.lazy_content</a></h1>
+          <p></p>
+          <hr>
+          <span class="credits left">Project maintained by <a href="https://github.com/tulios">tulios</a></span>
+        </div>
+
+        <h3>
+          Example Page - Loading images
+        </h3>
+        <br/>
+        <pre><code>
+          // Lazy loading images with '.lazy' class
+
+          $(".lazy").lazyContentImg();
+        </code></pre>
+
+        <div class="container">
+          <section class="block">
+            <div class="content">
+              <img class="lazy" data-src="http://lorempixel.com/250/250/abstract/1">
+              <img class="lazy" data-src="http://lorempixel.com/250/250/city/1">
+              <img class="lazy" data-src="http://lorempixel.com/250/250/people/1">
+              <img class="lazy" data-src="http://lorempixel.com/250/250/transport/1">
+              <img class="lazy" data-src="http://lorempixel.com/250/250/animals/1">
+              <img class="lazy" data-src="http://lorempixel.com/250/250/food/1">
+              <img class="lazy" data-src="http://lorempixel.com/250/250/nature/1">
+              <img class="lazy" data-src="http://lorempixel.com/250/250/business/1">
+
+              <img class="lazy" data-src="http://lorempixel.com/250/250/abstract/2">
+              <img class="lazy" data-src="http://lorempixel.com/250/250/city/2">
+              <img class="lazy" data-src="http://lorempixel.com/250/250/people/2">
+              <img class="lazy" data-src="http://lorempixel.com/250/250/transport/2">
+              <img class="lazy" data-src="http://lorempixel.com/250/250/animals/2">
+              <img class="lazy" data-src="http://lorempixel.com/250/250/food/2">
+              <img class="lazy" data-src="http://lorempixel.com/250/250/nature/2">
+              <img class="lazy" data-src="http://lorempixel.com/250/250/business/2">
+
+              <img class="lazy" data-src="http://lorempixel.com/250/250/abstract/3">
+              <img class="lazy" data-src="http://lorempixel.com/250/250/city/3">
+              <img class="lazy" data-src="http://lorempixel.com/250/250/people/3">
+              <img class="lazy" data-src="http://lorempixel.com/250/250/transport/3">
+              <img class="lazy" data-src="http://lorempixel.com/250/250/animals/3">
+              <img class="lazy" data-src="http://lorempixel.com/250/250/food/3">
+              <img class="lazy" data-src="http://lorempixel.com/250/250/nature/3">
+              <img class="lazy" data-src="http://lorempixel.com/250/250/business/3">
+
+              <img class="lazy" data-src="http://lorempixel.com/250/250/abstract/4">
+              <img class="lazy" data-src="http://lorempixel.com/250/250/city/4">
+              <img class="lazy" data-src="http://lorempixel.com/250/250/people/4">
+              <img class="lazy" data-src="http://lorempixel.com/250/250/transport/4">
+              <img class="lazy" data-src="http://lorempixel.com/250/250/animals/4">
+              <img class="lazy" data-src="http://lorempixel.com/250/250/food/4">
+              <img class="lazy" data-src="http://lorempixel.com/250/250/nature/4">
+              <img class="lazy" data-src="http://lorempixel.com/250/250/business/4">
+
+              <img class="lazy" data-src="http://lorempixel.com/250/250/abstract/5">
+              <img class="lazy" data-src="http://lorempixel.com/250/250/city/5">
+              <img class="lazy" data-src="http://lorempixel.com/250/250/people/5">
+              <img class="lazy" data-src="http://lorempixel.com/250/250/transport/5">
+              <img class="lazy" data-src="http://lorempixel.com/250/250/animals/5">
+              <img class="lazy" data-src="http://lorempixel.com/250/250/food/5">
+              <img class="lazy" data-src="http://lorempixel.com/250/250/nature/5">
+              <img class="lazy" data-src="http://lorempixel.com/250/250/business/5">
+
+              <img class="lazy" data-src="http://lorempixel.com/250/250/abstract/6">
+              <img class="lazy" data-src="http://lorempixel.com/250/250/city/6">
+              <img class="lazy" data-src="http://lorempixel.com/250/250/people/6">
+              <img class="lazy" data-src="http://lorempixel.com/250/250/transport/6">
+              <img class="lazy" data-src="http://lorempixel.com/250/250/animals/6">
+              <img class="lazy" data-src="http://lorempixel.com/250/250/food/6">
+              <img class="lazy" data-src="http://lorempixel.com/250/250/nature/6">
+              <img class="lazy" data-src="http://lorempixel.com/250/250/business/6">
+
+              <img class="lazy" data-src="http://lorempixel.com/250/250/abstract/7">
+              <img class="lazy" data-src="http://lorempixel.com/250/250/city/7">
+              <img class="lazy" data-src="http://lorempixel.com/250/250/people/7">
+              <img class="lazy" data-src="http://lorempixel.com/250/250/transport/7">
+              <img class="lazy" data-src="http://lorempixel.com/250/250/animals/7">
+              <img class="lazy" data-src="http://lorempixel.com/250/250/food/7">
+              <img class="lazy" data-src="http://lorempixel.com/250/250/nature/7">
+              <img class="lazy" data-src="http://lorempixel.com/250/250/business/7">
+
+              <img class="lazy" data-src="http://lorempixel.com/250/250/abstract/8">
+              <img class="lazy" data-src="http://lorempixel.com/250/250/city/8">
+              <img class="lazy" data-src="http://lorempixel.com/250/250/people/8">
+              <img class="lazy" data-src="http://lorempixel.com/250/250/transport/8">
+              <img class="lazy" data-src="http://lorempixel.com/250/250/animals/8">
+              <img class="lazy" data-src="http://lorempixel.com/250/250/food/8">
+              <img class="lazy" data-src="http://lorempixel.com/250/250/nature/8">
+              <img class="lazy" data-src="http://lorempixel.com/250/250/business/8">
+
+              <img class="lazy" data-src="http://lorempixel.com/250/250/abstract/9">
+              <img class="lazy" data-src="http://lorempixel.com/250/250/city/9">
+              <img class="lazy" data-src="http://lorempixel.com/250/250/people/9">
+              <img class="lazy" data-src="http://lorempixel.com/250/250/transport/9">
+              <img class="lazy" data-src="http://lorempixel.com/250/250/animals/9">
+              <img class="lazy" data-src="http://lorempixel.com/250/250/food/9">
+              <img class="lazy" data-src="http://lorempixel.com/250/250/nature/9">
+              <img class="lazy" data-src="http://lorempixel.com/250/250/business/9">
+
+              <img class="lazy" data-src="http://lorempixel.com/250/250/abstract/10">
+              <img class="lazy" data-src="http://lorempixel.com/250/250/city/10">
+              <img class="lazy" data-src="http://lorempixel.com/250/250/people/10">
+              <img class="lazy" data-src="http://lorempixel.com/250/250/transport/10">
+              <img class="lazy" data-src="http://lorempixel.com/250/250/animals/10">
+              <img class="lazy" data-src="http://lorempixel.com/250/250/food/10">
+              <img class="lazy" data-src="http://lorempixel.com/250/250/nature/10">
+              <img class="lazy" data-src="http://lorempixel.com/250/250/business/10">
+            </div>
+          </section>
+        </div>
+
+      </section>
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+
+    <script charset="utf-8">
+       $(".lazy").lazyContentImg();
+    </script>
+  </body>
+</html>

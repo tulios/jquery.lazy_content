@@ -1,0 +1,41 @@
+.container {
+  width: 1015px;
+  margin: 0 auto;
+}
+
+.block {
+  padding: 0;
+  margin-bottom: 100px;
+  width: 100%;
+  height: 505px;
+  position: relative;
+}
+
+.block .content {
+  display: none;
+}
+
+.block span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: inline-block;
+  margin-left: -32px;
+}
+
+.block img {
+  width: 250px;
+  height: 250px;
+}
+
+.lazy {
+  opacity: 0;
+  -moz-transition: opacity 2s;
+  -webkit-transition: opacity 2s;
+  -o-transition: opacity 2s;
+  transition: opacity 2s;
+}
+
+.lazy.loaded {
+  opacity: 1;
+}
