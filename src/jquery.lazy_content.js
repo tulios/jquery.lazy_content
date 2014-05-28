@@ -1,32 +1,34 @@
 /*
  * jQuery.LazyContent
  * https://github.com/tulios/jquery.lazy_content
- * version: 0.1.0
+ * version: 0.2.0
  */
 (function($, window, document) {
 
-  var DATA_NAME = "lazyLoadContent";
+  var LOAD = "lazyContentLoad";
+  var RESIZE_EVENT = "resize.lazyContent";
+  var SCROLL_EVENT = "scroll.lazyContent";
 
   $.fn.lazyContent = function(options) {
     options = $.extend({}, $.fn.lazyContent.defaults, options);
     var instance = new LazyContent(this, options);
 
-    $(window).on("resize", function() { instance.resize() });
-    $(window).on("scroll", function() { instance.scroll() });
+    $(window).on(RESIZE_EVENT, function() { instance.resize() });
+    $(window).on(SCROLL_EVENT, function() { instance.scroll() });
 
     instance.resize();
   };
 
   $.fn.lazyContent.defaults = {
     threshold: 0,
-    thresholdScroll: 50,
+    thresholdScroll: 100,
     onLoad: $.noop
   }
 
   var LazyContent = function (elements, options) {
     this.options = options;
     this.$elements = $(elements).each(function() {
-      $(this).data(DATA_NAME, true);
+      $(this).data(LOAD, true);
     });
 
     this.screenHeight = 0;
@@ -42,19 +44,27 @@
     },
 
     scroll: function() {
-      if (this.locked) return;
+      if (this.locked || this.$elements.length === 0) return;
       this.locked = true;
 
       var self = this;
       setTimeout(function() {
+        var elementsNotLoaded = [];
 
         self.$elements.each(function() {
           var element = $(this);
-          if(!!element.data(DATA_NAME) && element.is(':visible') && self.isVisible(element)) {
+          if(!!element.data(LOAD) && element.is(':visible') && self.isVisible(element)) {
             self.options.load(element);
-            element.data(DATA_NAME, false);
+            element.data(LOAD, false);
+
+          } else {
+            elementsNotLoaded.push(element);
           }
         });
+
+        if (elementsNotLoaded.length < self.$elements.length) {
+          self.$elements = $(elementsNotLoaded);
+        }
 
         self.locked = false;
 
