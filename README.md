@@ -27,4 +27,4 @@ $("img.lazy").lazyContentImg({
 
 ## Demo and examples
 
-Refer to the jQuery.LazyContent (website)[http://tulios.github.io/jquery.lazy_content/] for examples
+Refer to the jQuery.LazyContent [website](http://tulios.github.io/jquery.lazy_content/) for examples
