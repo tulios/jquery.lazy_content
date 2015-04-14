@@ -15,6 +15,12 @@ $(".elements").lazyContent({
 });
 ```
 
+### Destroying the plugin
+
+```js
+$(".elements").lazyContent("destroy");
+```
+
 ## Only images
 
 Include **src/jquery.lazy_content.js** and **src/jquery.lazy_content_img.js**
