@@ -60,6 +60,12 @@
           });
         </code></pre>
 
+        <div class="actions">
+          <button class="toggle" data-enabled='true'>
+            Turn lazy off
+          </button>
+        </div>
+
         <div class="container">
           <section class="block">
             <div class="loading">
@@ -218,19 +224,37 @@
     <!--[if !IE]><script>fixScale(document);</script><![endif]-->
 
     <script charset="utf-8">
-      $(".block").lazyContent({
-        threshold: 0,
-        load: function(element) {
-          element.find(".loading").hide();
-          element.find("img").each(function() {
-            var $img = $(this);
-            $img.attr("src", $img.data("src"));
-            $img.load(function() { $img.addClass("loaded") });
-          });
+      function enableLazyLoad() {
+        $(".block").lazyContent({
+          threshold: 0,
+          load: function(element) {
+            element.find(".loading").hide();
+            element.find("img").each(function() {
+              var $img = $(this);
+              $img.attr("src", $img.data("src"));
+              $img.load(function() { $img.addClass("loaded") });
+            });
 
-          element.find(".content").show();
+            element.find(".content").show();
+          }
+        });
+      }
+
+      $('.actions .toggle').off('click').click(function(e) {
+        e.preventDefault();
+        var btn = $(this);
+
+        if (!!btn.data('enabled')) {
+          btn.html('Turn lazy on').data('enabled', null);
+          $(".block").lazyContent('destroy');
+
+        } else {
+          btn.html('Turn lazy off').data('enabled', true);
+          enableLazyLoad();
         }
       });
+
+      enableLazyLoad();
     </script>
   </body>
 </html>

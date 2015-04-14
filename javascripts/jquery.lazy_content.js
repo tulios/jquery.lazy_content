@@ -1,22 +1,32 @@
 /*
  * jQuery.LazyContent
  * https://github.com/tulios/jquery.lazy_content
- * version: 0.2.0
+ * version: 0.3.0
  */
 (function($, window, document) {
 
   var LOAD = "lazyContentLoad";
   var RESIZE_EVENT = "resize.lazyContent";
   var SCROLL_EVENT = "scroll.lazyContent";
+  var INSTANCE_NAME = "lazyContentInstance";
 
   $.fn.lazyContent = function(options) {
-    options = $.extend({}, $.fn.lazyContent.defaults, options);
-    var instance = new LazyContent(this, options);
+    if (typeof options === 'string' && $(this).data(INSTANCE_NAME)) {
+      var instance = this.data(INSTANCE_NAME);
+      var methodName = options;
+      instance[methodName]();
 
-    $(window).on(RESIZE_EVENT, function() { instance.resize() });
-    $(window).on(SCROLL_EVENT, function() { instance.scroll() });
+    } else if (typeof options === 'object') {
+      options = $.extend({}, $.fn.lazyContent.defaults, options);
+      var instance = new LazyContent(this, options);
+      instance.resize();
 
-    instance.resize();
+    } else {
+      if (window.console && window.console.warn) {
+        console.warn('[jquery.lazyContent] invalid option or unitialized plugin');
+        console.warn(options);
+      }
+    }
   };
 
   $.fn.lazyContent.defaults = {
@@ -26,6 +36,7 @@
   }
 
   var LazyContent = function (elements, options) {
+    var self = this;
     this.options = options;
     this.$elements = $(elements).each(function() {
       $(this).data(LOAD, true);
@@ -34,9 +45,23 @@
     this.screenHeight = 0;
     this.screenWidth = 0;
     this.locked = false;
+
+    this.$elements.data(INSTANCE_NAME, this);
+    $(window).on(RESIZE_EVENT, function() { self.resize() });
+    $(window).on(SCROLL_EVENT, function() { self.scroll() });
   }
 
   LazyContent.prototype = {
+    destroy: function() {
+      $(window).off(RESIZE_EVENT);
+      $(window).off(SCROLL_EVENT);
+
+      this.$elements.data(INSTANCE_NAME, null);
+      this.$elements.each(function() {
+        $(this).data(LOAD, null);
+      });
+    },
+
     resize: function() {
       this.screenHeight = window.innerHeight || document.documentElement.clientHeight;
       this.screenWidth = window.innerWidth || document.documentElement.clientWidth;
